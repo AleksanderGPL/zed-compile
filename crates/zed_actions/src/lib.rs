@@ -35,6 +35,7 @@ actions!(
         Quit,
         OpenKeymap,
         About,
+        OpenDocs,
         OpenLicenses,
         OpenTelemetryLog,
     ]
@@ -141,6 +142,12 @@ pub mod git {
     action_with_deprecated_aliases!(git, Branch, ["branches::OpenRecent"]);
 }
 
+pub mod jj {
+    use gpui::actions;
+
+    actions!(jj, [BookmarkList]);
+}
+
 pub mod command_palette {
     use gpui::actions;
 
@@ -186,7 +193,10 @@ pub mod icon_theme_selector {
 pub mod agent {
     use gpui::actions;
 
-    actions!(agent, [OpenConfiguration]);
+    actions!(
+        agent,
+        [OpenConfiguration, OpenOnboardingModal, ResetOnboarding]
+    );
 }
 
 pub mod assistant {
